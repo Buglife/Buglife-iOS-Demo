@@ -8,7 +8,7 @@ import UIKit
 import Buglife
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BuglifeDelegate {
 
     var window: UIWindow?
 
@@ -17,7 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ERROR: Replace the email address below with your own email. Then delete this comment to build & run :)
         Buglife.sharedBuglife().startWithEmail("you@yourdomain.com")
         Buglife.sharedBuglife().invocationOptions = [.Shake, .Screenshot, .FloatingButton]
+        Buglife.sharedBuglife().delegate = self
 
         return true
+    }
+    
+    /// MARK: BuglifeDelegate
+    
+    func buglife(buglife: Buglife, titleForPromptWithInvocation invocation: LIFEInvocationOptions) -> String? {
+        return "Spotted a bug?"
     }
 }
