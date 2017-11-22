@@ -10,7 +10,7 @@ This project demos [Buglife](https://www.buglife.com), the most awesome bug repo
 3. In `AppDelegate.swift`, find the following line:
 
 	```swift
-	Buglife.sharedBuglife().startWithEmail("you@yourdomain.com")
+	Buglife.shared().start(withEmail: "you@yourdomain.com")
 	```
 	
 	Replace the email address here with your own email.
